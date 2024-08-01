@@ -23,4 +23,4 @@ RUN ./build/install-build-deps.sh && \
     gclient runhooks && \
     gn gen out/Default
 
-CMD ["echo", autoninja", "-C", "out/Default", "chrome"]
+CMD ["autoninja", "-C", "out/Default", "chrome"]
