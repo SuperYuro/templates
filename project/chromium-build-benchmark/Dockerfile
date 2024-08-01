@@ -10,7 +10,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
     apt-get install -y curl git lsb-release python3 git file vim sudo time && \
     rm -rf /var/lib/apt/lists/* && \
-		git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
+    git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
 
 # Export depot_tools path
 ENV PATH="/src/depot_tools:${PATH}"
@@ -21,6 +21,6 @@ RUN fetch --nohooks chromium
 WORKDIR /src/chromium/src
 RUN ./build/install-build-deps.sh && \
     gclient runhooks && \
-		gn gen out/Default
+    gn gen out/Default
 
-CMD ["time", "autoninja", "-C", "out/Default", "chrome"]
+CMD ["echo", autoninja", "-C", "out/Default", "chrome"]
